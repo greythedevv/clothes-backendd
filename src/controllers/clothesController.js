@@ -48,14 +48,10 @@ const updateClothes = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const clothes = await Clothes.findByIdAndUpdate(
-      id,
-      req.body,
-      {
-        new: true,
-        runValidators: true,
-      }
-    );
+    const clothes = await Clothes.findByIdAndUpdate(id, req.body, {
+      new: true,
+      runValidators: true,
+    });
 
     if (!clothes) {
       return res.status(404).json({
